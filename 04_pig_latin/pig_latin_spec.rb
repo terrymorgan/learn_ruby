@@ -65,6 +65,31 @@ describe "#translate" do
     expect(s).to eq("ethay ickquay ownbray oxfay")
   end
 
+  it 'capitalized words still capitalized' do
+    s = translate("Square")
+    expect(s).to eq("Aresquay")
+  end
+
+  it 'keeps original punctuation' do
+    s = translate("o'clock")
+    expect(s).to eq("o'clockay")
+
+    s = translate("Tim's")
+    expect(s).to eq("Im'stay")
+
+    s = translate("Tim's thrilled!")
+    expect(s).to eq("Im'stay illedthray!")
+
+    s = translate("how now, brown cow?!!!!!!")
+    expect(s).to eq("owhay ownay, ownbray owcay?!!!!!!")
+
+  end
+
+  it "skips words lacking vowels" do
+    s = translate("my")
+    expect(s).to eq("my")
+  end
+
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase

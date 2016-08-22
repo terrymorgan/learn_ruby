@@ -31,5 +31,3 @@ def titleize string
 	title[0].capitalize!
 	title.join(" ")
 end
-
-puts titleize 'the bridge over the river kwai'
